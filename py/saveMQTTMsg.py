@@ -9,7 +9,7 @@ client_id = "xxxx"
 topic = 'xxx'
 
 connect = pymysql.Connect(
-host        =   'localhost',
+host        =   'xxxx',
 port        =   3306,
 user        =   'xxxx',
 passwd      =   'xxxx',

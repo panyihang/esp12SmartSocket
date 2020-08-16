@@ -10,18 +10,33 @@
 <body>
     <div style="text-align: center;">
         <form  method="post">
-            <h2>当前节点:</h2>
-            
+            {% csrf_token %}
+            <h2>当前在线节点:</h2>
+
+            <select name="driverName">
+                {% for driverName in driverNameList %}
+                    <option value={{ driverName }}> {{ driverName }}</option>
+                {% endfor %}
+            </select>
+
             <h3>温度：{{ temperature }}</h3>
             <h3>湿度：{{ humidity }}</h3>
-            <h3>light0:{{ light0 }}</h3>
-            {% csrf_token %}
+            <h3>LED0:{{ light0 }}</h3>
+
             {%if light0 == 'on'%}
-            <input type="submit" value="关闭" name="light0OFF">
+                <input type="submit" value="关闭" name="light0OFF">
             {%elif light0 == 'off'%}
-            <input type="submit" value="打开" name="light0ON">
+                <input type="submit" value="打开" name="light0ON">
             {% else %}
-            <h3>LIGHT0_ERROR</h3>
+                <h3>LIGHT0_ERROR</h3>
+            {% endif %}
+            <h3>LED1:{{ light1 }}</h3>
+            {%if light1 == 'on'%}
+                <input type="submit" value="关闭" name="light1OFF">
+            {%elif light1 == 'off'%}
+                <input type="submit" value="打开" name="light1ON">
+            {% else %}
+                <h3>LIGHT0_ERROR</h3>
             {% endif %}
         </form>
     </div>

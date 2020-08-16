@@ -2,12 +2,12 @@ import paho.mqtt.client as mqtt
 import json
 import time
 
-HOST = "mqtt.panyihang.top"
+HOST = "xxxx"
 PORT = 1883
-client_id = "智能声控开关-控制端-test"
+client_id = "xxxx"
 
 def on_connect(client, userdata, flags, rc):
-    client.subscribe("test0")
+    client.subscribe("xxxx")
 
 
 def on_message(client, userdata, msg):
