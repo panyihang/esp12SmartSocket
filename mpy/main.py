@@ -12,9 +12,9 @@ from machine import WDT
 from machine import Timer
 from simple import MQTTClient
 
-wifiSsid    =   'xxxxx'         #wifi的ssid
+wifiSsid    =   'xxxx'          #wifi的ssid
 wifiPasswd  =   'xxxx'          #wifi的密码
-server      =   'xxx'           #mqtt服务器
+server      =   'xxxx'          #mqtt服务器
 clienID     =   'ESP8266--'     #mqtt id的前缀
 userName    =   'xxxx'          #mqtt帐号
 passwd      =   'xxxx'          #mqtt密码
@@ -44,14 +44,11 @@ def start():
     global humidity
     readDHT = Timer(-1)
     readDHT.init(period=3500, mode=Timer.PERIODIC, callback=getDHTInfo)
-
-
     led0ON = Timer(-1)
     led0OFF = Timer(-1)
     led0ON.init(period=500, mode=Timer.PERIODIC, callback=lambda t:led0.on())
     time.sleep(0.25)
     led0OFF.init(period=500, mode=Timer.PERIODIC, callback=lambda t:led0.off())
-    #cpu超频
     cpu.cpuFrep(1)
     #wifi连接
     wlan.wifiConnect(wifiSsid,wifiPasswd)
@@ -61,12 +58,9 @@ def start():
     mqttConnect.set_callback(subCD)
     mqttConnect.connect()
     mqttConnect.subscribe(topic)
-    #看门狗
     wdt = WDT()
     while True:
-        #喂狗
         wdt.feed()
-        #mqtt拉消息
         mqttConnect.check_msg()
         if flage:
             sandMsg = ujson.dumps(testMsg)
