@@ -3,17 +3,17 @@ import json
 import time
 import pymysql
 
-HOST = "mqtt.panyihang.top"
+HOST = "xxxx"
 PORT = 1883
-client_id = "智能声控开关-控制端-test"
-topic = 'test0'
+client_id = "xxxx"
+topic = 'xxx'
 
 connect = pymysql.Connect(
 host        =   'localhost',
 port        =   3306,
-user        =   'root',
-passwd      =   'panyihang233',
-db          =   'testDB',
+user        =   'xxxx',
+passwd      =   'xxxx',
+db          =   'xxxx',
 charset     =   'utf8',
 cursorclass = pymysql.cursors.DictCursor
 )
