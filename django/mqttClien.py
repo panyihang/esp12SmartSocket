@@ -22,7 +22,7 @@ def on_disconnect(client, userdata, rc):
     if rc != 0:
         print("Unexpected disconnection %s" % rc)
 
-def main(sendMsg):
+def main(driverName,sendMsg):
     client = mqtt.Client(client_id)
     client.username_pw_set("sandServerTest", "")
     client.on_connect = on_connect
@@ -30,5 +30,5 @@ def main(sendMsg):
     client.on_subscribe = on_subscribe
     client.on_disconnect = on_disconnect
     client.connect(HOST, PORT, 10)
-    client.publish("test0", payload=str(sendMsg), qos=2)
+    client.publish("test0", payload=(str(driverName)+' '+str(sendMsg)), qos=2)
     client.disconnect()
