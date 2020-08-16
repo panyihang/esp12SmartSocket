@@ -12,13 +12,13 @@ from machine import WDT
 from machine import Timer
 from simple import MQTTClient
 
-wifiSsid    =   'TP-LINK_5AFF'          #wifi的ssid
-wifiPasswd  =   '5t4r3e2w1q'            #wifi的密码
-server      =   'mqtt.panyihang.top'    #mqtt服务器
-clienID     =   'ESP8266--'             #mqtt id的前缀
-userName    =   'panyihang'             #mqtt帐号
-passwd      =   ''                      #mqtt密码
-topic       =   'test0'                 #订阅的主题
+wifiSsid    =   'xxxxx'         #wifi的ssid
+wifiPasswd  =   'xxxx'          #wifi的密码
+server      =   'xxx'           #mqtt服务器
+clienID     =   'ESP8266--'     #mqtt id的前缀
+userName    =   'xxxx'          #mqtt帐号
+passwd      =   'xxxx'          #mqtt密码
+topic       =   'xxxx'          #订阅的主题
 
 testMsg     =    {}
 light0      =    'on'
