@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>智能声控开关</title>
+
+<script>
+    $(document).ready(function(){
+
+    })
+</script>
+
+<body>
+    <div style="text-align: center;">
+        <h3>温度：{{ temperature }}</h3>
+        <h3>湿度：{{ humidity }}</h3>
+        <form  method="post">
+            <h3>light0:{{ light0 }}</h3>
+            {% csrf_token %}
+            {%if light0 == 'on'%}
+            <input type="submit" value="关闭" name="light0OFF">
+            {%elif light0 == 'off'%}
+            <input type="submit" value="打开" name="light0ON">
+            {% else %}
+            <h3>LIGHT0_ERROR</h3>
+            {% endif %}
+        </form>
+    </div>
+</body>
