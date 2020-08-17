@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>智能开关</title>
+        <link rel="icon" type="image/icon" href="../static/images/tabicon.ico">
+        <link rel="stylesheet" type="text/css" href="">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+        <link href="../static/css/main.css" rel="stylesheet">
+        <link rel="icon" href="../static/images/logo.png">
+        <link rel="stylesheet" href="../static/css/animate.min.css">
+        
+    </head>
+
+    <body>
+
+        <form  method="post">
+            {% csrf_token %}
+            <div id="index">                                     
+                <div class="container main">
+                    <div class="row home">
+
+                        <div id = "index_right" class="col-md-6 text-center right">
+                            <div class="logo">
+                                <img src="../static/images/logo.png" style="width:111px;">
+                                <h4>基于esp12的智能开关</h4>
+                            </div>
+                            <div class="btn-group-vertical custom_btn animated slideinright">
+                                <div class="btn btn-rabbit">
+                                <select name="driverName">
+                                    {% for driverName in driverNameList %}
+                                        <option value={{ driverName }}> {{ driverName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                                <div id="about" class="btn btn-rabbit">数据监控</div>
+                                <div id="work" class="btn btn-rabbit">开关</div>
+
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about_scroll" class="pages ">                 
+                <div class="container main">
+                    <div class="row">
+
+                        <div class="col-md-6 right" id="about_right">
+                            <a href="#index" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> 返回上一级</a>
+                            <div id="watermark">
+                                <h2 class="page-title" text-center>数据监控</h2>
+                                <div class="marker"></div>
+                            </div>
+                            <p class='subtitle'>数据监控
+                            </p>
+                            <p class="info">温度:{{ temperature }}</p>
+                            <p class="info">湿度:{{ humidity }}</p>
+                            <p class="info">噪音:已翻车</p>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+
+            <div id="work_scroll" class="pages">                               
+                <div class="container main">
+                    <div class="row">
+                        <div class="col-md-6" id="work_right">
+                            <a href="#index" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i>返回上一级</a>
+                            <div id="watermark">
+                                <h2 class="page-title" text-center>开关控制</h2>
+                                <div class="marker"></div>
+                            </div>
+                            <p class='subtitle'>开关控制
+                            </p>
+                            <p class="info">开关一：{{ light0 }}</p>
+                            {%if light0 == 'on'%}
+                                <input type="submit" value="关闭" name="light0OFF">
+                            {%elif light0 == 'off'%}
+                                <input type="submit" value="打开" name="light0ON">
+                            {% else %}
+                                <h3>LIGHT0_ERROR</h3>
+                            {% endif %}
+                            <p class="info">开关二：{{ light1 }}</p>
+                                {%if light1 == 'on'%}
+                                <input type="submit" value="关闭" name="light1OFF">
+                                {%elif light1 == 'off'%}
+                                    <input type="submit" value="打开" name="light1ON">
+                                {% else %}
+                                    <h3>LIGHT0_ERROR</h3>
+                                {% endif %}
+                                <hr style="block-size: auto;">
+                                <p class="info">声控开关</p>
+                                <p>已翻车</p>
+                                <hr style="block-size: auto;">
+                                <p class="info">定时开关配置</p>
+                                <p">选择设备：</p>
+                                <select name="driverName">
+                                    {% for driverName in driverNameList %}
+                                        <option value={{ driverName }}> {{ driverName }}</option>
+                                    {% endfor %}
+                                </select>
+                                <br>
+                                <p class="info">选择关闭的时间段：</p>
+                                <div>
+                                    
+                                </div>
+
+                        </div>
+                    </div>
+                </div>    
+            </div>
+    
+
+
+    </form>
+
+
+        <script src="../static/js/jquery-3.1.0.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/script.js"></script>
+    </body>
+</html>

@@ -12,6 +12,8 @@ from machine import WDT
 from machine import Timer
 from simple import MQTTClient
 
+#为确保本人信息不外泄，所有敏感信息全由'xxxx'代替，请自行补充
+
 wifiSsid    =   'xxxx'          #wifi的ssid
 wifiPasswd  =   'xxxx'          #wifi的密码
 server      =   'xxxx'          #mqtt服务器
