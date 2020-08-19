@@ -1,4 +1,3 @@
-#!/bin/bash
 systemctl start mariadb.service
 systemctl start docker.service
 python py/saveMQTTMsg.py &
