@@ -4,11 +4,11 @@ import time
 import pymysql
 
 connect = pymysql.Connect(
-host        =   'localhost',
+host        =   'xxxx',
 port        =   3306,
-user        =   'root',
-passwd      =   'panyihang233',
-db          =   'testDB',
+user        =   'xxxx',
+passwd      =   'xxxx',
+db          =   'xxxx',
 charset     =   'utf8',
 cursorclass = pymysql.cursors.DictCursor
 )
@@ -26,7 +26,7 @@ def test(request):
     global context
     global connect
     cursor = connect.cursor()
-    cursor.execute('select * from trade')
+    cursor.execute('select * from trade order by time desc limit 5')
     data = cursor.fetchall()[-5:-1]
     for driverName in range(len(data)):
         driverNmaeList.append((data[driverName])['driverName'])
