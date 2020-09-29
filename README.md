@@ -5,7 +5,8 @@
 ### 本仓库为[基于ESP12f的智能声控开关](https://oshwhub.com/an_ye/ji-yuesp8266-di-zhi-neng-kai-guan)的软件部分
 
 
-+ mpy目录为esp8266使用的microopython，使用前需配置webrepl `import webrepl_setup`，再将该目录内所有文件上传至单片机即可
++ mpy目录为esp8266使用的microopython，使用前需配置webrepl `import webrepl_setup`
++ wifi及mqtt服务器配置在mpy/main.py中，修改后将该目录内所有文件上传至单片机即可
 + micropython的固件放在mpy目录内，使用esptool.py烧录
 + start.sh运行需要root权限
 + 运行start.sh即可启动所有服务，所需的依赖：
