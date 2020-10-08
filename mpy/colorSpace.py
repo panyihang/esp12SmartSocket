@@ -13,6 +13,14 @@ class colorSpaceChanged(num1,num2,num3):
         v = ((112*r - 94*g - 18*b + 128)>>8)+128
         return(y,u,v)
 
+    def clip(num):
+        if num <= 0:
+            return(0)
+        elif num >= 255:
+            return(255)
+        else:
+            return(num)
+    
     def YUV2RGB(y,u,v):
         C = y-16
         D = u-128
